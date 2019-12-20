@@ -1,7 +1,7 @@
 ---
 title: CLI를 통한 프로젝트 생성(6)
 date: 2019-12-19 00:16:35
-tags: vue
+tags: [vue,cli]
 category: 
 - vue
 - vue 기본문법
