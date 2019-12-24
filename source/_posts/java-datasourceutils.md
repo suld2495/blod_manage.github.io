@@ -38,7 +38,7 @@ public class DataSourceUtilsTest {
 }
 ```
 
-![](/code_repository/image/java-datasourceutils1.png)
+![](/image/java-datasourceutils1.png)
 
 트랜잭션이 동기화되어 있지 않을 경우에는 `dataSource.getConnection()`과 동일하게 작동합니다. 그래서 항상 새로운 Connection을 반환합니다.
 
@@ -56,7 +56,7 @@ public class DataSourceUtilsTest {
 }
 ```
 
-![](/code_repository/image/java-datasourceutils2.PNG)
+![](/image/java-datasourceutils2.PNG)
 
 
 ##### releaseConnection(Connection conn, DataSource dataSource)
@@ -83,7 +83,7 @@ public class DataSourceUtilsTest {
 }
 ```
 
-![](/code_repository/image/java-datasourceutils3.PNG)
+![](/image/java-datasourceutils3.PNG)
 
 
 위와 같이 releaseConnection 메소드를 호출 하더라도 Connection은 종료되지 않는다. 단지 트랜잭션에서만 제거되었을 뿐이다. 이 때문에 사용시 주의할 필요가 있다.
@@ -111,7 +111,7 @@ public class DataSourceUtilsTest {
 }
 ```
 
-![](/code_repository/image/java-datasourceutils4.PNG)
+![](/image/java-datasourceutils4.PNG)
 
 ## 결론
 
