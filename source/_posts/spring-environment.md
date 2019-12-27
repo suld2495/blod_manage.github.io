@@ -1,5 +1,5 @@
 ---
-title: Environment
+title: Environment 클래스
 date: 2019-12-26 11:14:11
 tags: [environment]
 categories:
@@ -7,11 +7,11 @@ categories:
 - IoC Container
 ---
 
-##### Environment
+## Environment
 
 ApplicationContext는 EnvironmentCapable 인터페이스를 구현하고 있습니다. 이 인터페이스는 getEnvironment 메소드를 제공하며 호출시 Environment를 반환해 줍니다. Environment 클래스는 프로파일 및 프로퍼티 값과 관련이 있습니다.
 
-##### 프로파일
+## 프로파일
 
 개발을 하다보면 로컬, 개발, 운영등 각 환경마다 설정을 달리 해주어야 하는 경우가 발생합니다. 이때 각 환경마다 활성화할 Bean을 관리해주는 역할을 하는게 프로파일입니다. 
 
@@ -129,7 +129,7 @@ abc | def는 abc이거나 def인것만 활성화
 
 <br>
 
-##### 프로퍼티
+## 프로퍼티
 
 프로퍼티는 다양한 방법으로 정의할수 있는 설정값입니다. 프로퍼티는 `key=value`로 구성이 됩니다.
 
@@ -137,3 +137,11 @@ abc | def는 abc이거나 def인것만 활성화
 
 `@PropertySource("classpath:파일위치")`로 추가가 가능합니다. XML에서도 프로퍼티 등록이 가능합니다. 되도록 @Configuration이 선언된 클래스에 함께 사용하도록 합시다.
 
+##### 프로퍼티 값 가져오기
+
+등록 된 프로퍼티는 Environment에서 가져올수 있습니다. Environment도 Bean으로 등록 되어 있어 의존 주입 받아 쓰거나, ApplicationContext에서 getEnvironment 메소드로 가져올수 있습니다.
+
+```java
+Environment en = application.getEnvironment();
+en.getProperty("key");
+```
