@@ -206,7 +206,7 @@ public void test7() {
 
 `SpelParserConfiguration`를 사용 하면 Collection에서 index가 null일 경우에 자동으로 생성해주는 기능을 활성화 할수 있습니다. 
 
-아래의 예제에서는 배열에서 index가 null인 요소에 접근하려고 할때 자동으로 배열에 빈값이 추가된것을 확인 할수 있습니다.
+아래의 예제에서는 배열에서 index가 null인 요소에 접근하려고 할때 자동으로 배열에 빈값이 추가된것을 확인 할수 있습니다. SpelParserConfiguration 생성자의 두번째 파라미터를 true로 전달하면 기능을 활성화 할수 있습니다(기본값은 두개 모두 false).
 
 ```java
 @Test
