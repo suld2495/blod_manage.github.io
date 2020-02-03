@@ -263,4 +263,94 @@ public void test9() {
 }
 ```
 
-## 템플릿
+## 빈 정의를 정의하는 표현식
+
+XML와 어노테이션 기반의 설정 메타데이터와 SpEL 표현식을 함께 사용할수 있습니다. 표현식을 정의 하기 위한 문법은 `#{ <expression string> }`입니다.
+
+#### XML Configuration
+
+표현식을 사용해서 프로퍼티나 생성자의 전달인자에 값을 할당할수 있습니다.
+
+```xml
+<bean id="spelVo" class="kr.co.spring.SpELVO">
+    <constructor-arg name="name" value="hihi"/>
+</bean>
+```
+
+```java
+@Test
+public void xml() {
+    ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-spel.xml");
+    SpELVO spelVo= (SpELVO) ctx.getBean("spelVo");
+    System.out.println(spelVo.getName());
+}
+```
+```
+hihi
+```
+
+<br>
+
+#### 어노테이션
+
+`@Value` 어노테이션을 이용해서 SpEL을 사용할수 있습니다. 어노테이션이 위치할수 있는 곳은 필드, 메소드, 메소드나 생성자의 파라미터입니다.
+
+###### 필드에서의 사용
+
+아래의 클래스는 Value 어노테이션을 사용하는 예제로 사용이 됩니다. 아래에서 보듯이 일반 문자열 및 빈으로 등록 된 객체의 메소드도 사용이 가능합니다(빈으로 등록되지 않으면 사용이 안됨).
+
+```java
+public class ValueSpEL {
+    @Value("hi")
+    private String hello;
+
+    @Value("#{seplVo.getName()}")
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getHello() {
+        return hello;
+    }
+}
+
+```
+
+SpELVO와 ValueSpEL 클래스를 빈으로 등록합니다.
+
+```java
+@Component
+public class WebConfiguration {
+
+    @Bean
+    public SpELVO seplVo() {
+        return new SpELVO("sara");
+    }
+
+    @Bean
+    public ValueSpEL valueSpEL() {
+        return new ValueSpEL();
+    }
+}
+
+```
+
+```java
+@Test
+public void annotationField() {
+    ApplicationContext ctx = new AnnotationConfigApplicationContext(WebConfiguration.class);
+    ValueSpEL valueSpEL = (ValueSpEL) ctx.getBean("valueSpEL");
+    System.out.println(valueSpEL.getHello());
+    System.out.println(valueSpEL.getName());
+}
+```
+```
+hi
+sara
+```
+
+> 주의를 할 점은 xml이나 어노테이션 등에서 사용 되는 $와 #의 차이점을 구분할줄 알아야 한다. $는 프로퍼티 문법이고,<br> #는 SpEL 문법이다.
+
+
