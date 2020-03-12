@@ -41,7 +41,7 @@ D:\GIT 소스코드 저장소\TDD\JEST\vue-jest\vue-jest-start\src\test\hellowor
 1) jest
 2) vue-jest
 3) @babel/core
-4) @babel/preest-env
+4) @babel/preset-env
 5) babel-jest
 
 <br>
