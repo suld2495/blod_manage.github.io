@@ -43,6 +43,7 @@ D:\GIT 소스코드 저장소\TDD\JEST\vue-jest\vue-jest-start\src\test\hellowor
 3) @babel/core
 4) @babel/preset-env
 5) babel-jest
+6) babel-core@^7.0.0-bridge.0 (바벨이 7.0 이상 사용중일때)
 
 <br>
 
