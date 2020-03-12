@@ -15,6 +15,8 @@ Vue는 비동기 적으로 DOM을 업데이트 합니다. 데이터의 변경이
 <br>
 
 #### nextTick 사용하기 
+아래의 코드를 실행해보면 data가 변경 되더라도 실제로 바로 렌더링되지 않는 다는 것을 확인 할수 있습니다.
+그리고 nextTic 메소드의 콜백함수가 DOM 업데이트가 완료 된 후 실행되었음을 확인할수 있습니다.
 
 ```html
 <div id="example">{{ message }}</div>
@@ -27,9 +29,11 @@ var vm = new Vue({
         message: '123'
     }
 })
-vm.message = 'new message' // change data
-vm.$el.textContent === 'new message' // false
+vm.message = 'new message' 
+vm.$el.textContent === 'new message'        // false
 Vue.nextTick(function () {
-    vm.$el.textContent === 'new message' // true
+    vm.$el.textContent === 'new message'    // true
 })
 ```
+
+> https://vuejs.org/v2/guide/reactivity.html를 참조하였습니다.
