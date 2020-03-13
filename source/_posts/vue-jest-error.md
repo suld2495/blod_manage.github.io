@@ -1,5 +1,5 @@
 ---
-title: Vue Jest 에러
+title: Vue Jest 에러 및 테스트를 위한 기본 라이브러리 정보
 date: 2020-03-06 20:06:39
 tags: [jest에러]
 categories:
