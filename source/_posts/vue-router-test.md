@@ -1,7 +1,7 @@
 ---
 title: Vue 라우터 테스트
 date: 2020-03-13 17:14:15
-tags: [jest란, jest설치]
+tags: [vue-router-test]
 categories:
 - javascript
 - TDD
